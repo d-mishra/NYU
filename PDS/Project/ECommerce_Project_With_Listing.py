@@ -25,7 +25,7 @@ capacityNotReached  = True
 etsyCorpus = []
 etsyResults = []
 pageOffset = 0
-capacity = 500
+capacity = 5000
 
 
 #Etsy only allows 100 items per call. Use 5,000 in final run
