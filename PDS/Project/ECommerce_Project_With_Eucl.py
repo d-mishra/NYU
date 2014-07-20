@@ -126,7 +126,7 @@ for sliceStart in range(0,len(etsyCorpus),1):
     sorted_Doc_similarities = sorted(Doc_similarities.items(),reverse=True)
     #Output similarities
     #print(str(sliceStart)+" "+etsyResults[sliceStart]["shop_name"]+": "+str(sorted_Doc_similarities.popitem())+" "+etsyResults[related_docs_indices[1]]["shop_name"]+", "+str(related_docs_indices[2])+" "+etsyResults[related_docs_indices[2]]["shop_name"]+", "+str(related_docs_indices[3])+" "+etsyResults[related_docs_indices[3]]["shop_name"]+", "+str(related_docs_indices[4])+" "+etsyResults[related_docs_indices[4]]["shop_name"]+", "+str(related_docs_indices[5])+" "+etsyResults[related_docs_indices[5]]["shop_name"])
-print sorted_Doc_similarities[:10]
+    print sorted_Doc_similarities[:10]
     
     
     
