@@ -117,7 +117,7 @@ for sliceStart in range(0,len(etsyCorpus),1):
         while(etsyResults[secStart]!=etsyResults[sliceStart]):
             SecAr=[int(etsyResults[secStart]["listing_active_count"]),int(etsyResults[secStart]["num_favorers"])]
 #            EudDist = la.norm(PrimAr-SecAr)
-            EudDist = math.sqrt((PrimAr[0]-SecAr[0])^2+((PrimAr[1]-SecAr[1])^2))
+            EudDist = ((PrimAr[0]-SecAr[0])**2+((PrimAr[1]-SecAr[1])**2))**0.05
             Doc_similarities.update={etsyResults["shop_name"]:EudDist}
         # sort the dictionary to get lest distance documents
         print Doc_similarities
