@@ -18,6 +18,7 @@ from sklearn.metrics.pairwise import linear_kernel
 from numpy import linalg as la
 import urllib2
 import json 
+import math
 import operator
 import pprint  #Use pprint "pretty print" for outputting complex data sets
 
@@ -111,11 +112,12 @@ pprint.pprint(etsyResults[0]) # names of shop attributes
 
 for sliceStart in range(0,len(etsyCorpus),1):
     
-    PrimAr=[etsyResults[sliceStart]["listing_active_count"],etsyResults[sliceStart]["num_favorers"] ]
+    PrimAr=[int(etsyResults[sliceStart]["listing_active_count"]),int(etsyResults[sliceStart]["num_favorers"]) ]
     for secStart in range(0,len(etsyCorpus),1):
         while(etsyResults[secStart]!=etsyResults[sliceStart]):
-            SecAr=[etsyResults[secStart]["listing_active_count"],etsyResults[secStart]["num_favorers"]]
-            EudDist = la.norm(PrimAr-SecAr)
+            SecAr=[int(etsyResults[secStart]["listing_active_count"]),int(etsyResults[secStart]["num_favorers"])]
+#            EudDist = la.norm(PrimAr-SecAr)
+            EudDist = math.sqrt((PrimAr[0]-SecAr[0])^2+((PrimAr[1]-SecAr[1])^2))
             Doc_similarities.update={etsyResults["shop_name"]:EudDist}
         # sort the dictionary to get lest distance documents
         print Doc_similarities
